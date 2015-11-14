@@ -1,88 +1,81 @@
 package com.mrec.mtech1;
 
-
-import java.util.LinkedList;
-import java.util.ListIterator;
 import java.util.Scanner;
+
+
 
 public class ListList {
 	public static Scanner sc = new Scanner(System.in);
-    
-	LinkedList<Integer> res = new LinkedList<Integer>();
+	private static Node root;
+   
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		ListList list = new ListList();
-		Integer element = list.readElement();
-		Integer index = list.readIndex();
-		list.add(element);
-		list.add(element+1);
-		list.add(element+2);
-		list.remove(index);
-		int ind = list.indexOf(element);
-		boolean empty = list.isEmpty();
-		Integer ele = list.get(index);
-		System.out.println("is empty::" +empty+ " "+"indexOf["+element+"] ::"+ind+ " "+"get("+index+")::"+ele );
-		list.display();
+		int element;
+		int index;
+		String choice;
 		
-
-	}
-	
-	
-	private void display() {
-		ListIterator<Integer> it= res.listIterator();
-		while(it.hasNext()){
-			System.out.print(it.next()+" ");
-		}
+		do{
+		System.out.println("enter your option 1.add 2.remove(index) 3.getElement(index) 4.getIndex(element) 5.isEmpty() 6.display  ");
+		int option = sc.nextInt();
+		switch(option){
 		
-	}
-
-
-	private Integer get(Integer index) {
-		
-		return res.get(index);
-		
-	}
-
-
-	private boolean isEmpty() {
-		return res.isEmpty();
-		
-	}
-
-
-	private int indexOf(Integer element) {
-		
-		return res.indexOf(element);
-		
-	}
-
-
-	private void remove(Integer index) {
-		
-			res.removeLast();
-		
-	}
-
-
-	private void add(Integer element) {
-		
-			res.addLast(element);
+		case 1: System.out.println("enter element to insert to list");
+		        element = sc.nextInt();
+			    list.add(element);
+			    list.display();
+			    break;
+			    
+		case 2: System.out.println("enter index to delete an element in list");
+                index = sc.nextInt();
+	           list.remove(index);
+	           list.display();
+	           break;
+	           
+		case 3: System.out.println("enter index to get element");
+       			index = sc.nextInt();
+       			element =list.getElement(index);
+       			System.out.println("element at index "+index+" is :: "+element);
+       			break;
+       			
+		case 4: System.out.println("enter element to get  at index");
+        		element = sc.nextInt();
+        		index = list.getIndex(element);
+        		System.out.println(element+"element present at  index   :: "+index);
+        		break;
+        		
+		case 5: boolean empty = list.isEmpty();
+		        System.out.println(empty);
+		        break;
+		        
+		case 6: list.display();
+		        break;
+		default: System.out.println("choose correct option");
 			
 		}
+		System.out.println("would you like to continue(y/n)");
+		choice = sc.next();
+		}while(choice.equals("y"));
+	
 
-	private Integer readElement() {
 		
-		System.out.println("Enter element");
-		Integer element = sc.nextInt();
-		return element;
+
 	}
-	private Integer readIndex() {
+
+	private void add(int element) {
+		Node temp = new Node(element);
+		if(root == null){
+			root = temp;
+			
+		}
+		else
 		
-		System.out.println("Enter Index");
-		Integer in = sc.nextInt();
-		return in;
+		
 	}
+	
+	
+
 
 
 }

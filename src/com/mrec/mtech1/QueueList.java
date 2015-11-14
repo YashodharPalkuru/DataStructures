@@ -29,7 +29,7 @@ public class QueueList {
     	queue.remove();
     	queue.display();
     	LinkedList li = new LinkedList();
-    	li.
+    	//li.
     	 //queue.peek();
     	//queue.element();
     	//queue.poll();
